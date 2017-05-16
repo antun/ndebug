@@ -3,6 +3,8 @@
 Purpose
 -------
 
+This fork works around the bug where [redirecting Node to a pipe breaks require](https://github.com/nodejs/node/issues/11257). It is also updated for Node v7.10, with the newer syntax.
+
 This is a repo and workflow for a simple ES6/Node.js/Lodash scratchpad for Vim. I got tired of writing bits of code in the
 web inspector, since it's really difficult to go back and edit code. I wanted a quick little thing I could open up
 and immediately start writing some ES6 code that also has Lodash available.
@@ -27,3 +29,13 @@ buffer remains until I close it, and it'll update each time I save the scratchpa
 scratchpad buffer:
 
 ![http://i.nick.sg/image/2i2N2E1B0j25/gif.gif](http://i.nick.sg/image/2i2N2E1B0j25/gif.gif)
+
+Alternatively, I use this setup, which lets me write :_ in vim and hit enter:
+
+```
+au BufWritePost ndebug.js execute "normal! :Clam cd ~/software/git/ndebug; npm run build; cd -\<cr>"
+function! Ndebug()
+  :edit ~/software/git/ndebug/ndebug.js
+endfunction
+cnoremap _<CR> <CR>:call Ndebug()<CR><CR>
+```

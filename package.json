@@ -4,21 +4,21 @@
   "description": "An ES6/Node.js scratchpad for Vim with lodash available.",
   "main": "index.js",
   "scripts": {
-    "build": "babel ndebug.js|node",
+    "build": "babel ndebug.js > ndebug_compiled.js; node ndebug_compiled.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nicksergeant/ndebug.git"
+    "url": "git+https://github.com/antun/ndebug.git"
   },
   "author": "Nick Sergeant",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nicksergeant/ndebug/issues"
+    "url": "https://github.com/antun/ndebug/issues"
   },
-  "homepage": "https://github.com/nicksergeant/ndebug#readme",
+  "homepage": "https://github.com/antun/ndebug#readme",
   "dependencies": {
-    "babel": "^5.8.23",
-    "lodash": "^3.10.1"
+    "babel-cli": "^6.24.1",
+    "lodash": "^4.17.4"
   }
 }
